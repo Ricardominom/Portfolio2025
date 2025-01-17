@@ -1,0 +1,4 @@
+[[headers]]
+  for = "/Ricardo_Mino_Resume.pdf"
+  [headers.values]
+    Content-Type = "application/pdf"
