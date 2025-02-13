@@ -4,7 +4,7 @@ import { faDatabase, faDownload, faServer } from "@fortawesome/free-solid-svg-ic
 import { useSpring, animated } from "react-spring"
 import { useState } from "react"
 
-const CV = 'public/Ricardo_Mino_Resume.pdf'
+const CV = '/Ricardo_Mino_Resume.pdf'
 
 export default function Aboutme() {
   const [flip, setFlip] = useState(false)
