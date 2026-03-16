@@ -3,21 +3,37 @@ import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-
 
 export default function Footer() {
   return (
-      <div className='bg-blue-600 text-white font-bold flex flex-col md:flex-row justify-between items-center mx-auto px-8 md:px-32 p-2'>
-        <div className='mb-4 md:mb-0'>
-            Ricardo Mino - Developer
-        </div>
-        <div className='flex gap-4 md:gap-8'>
-          <a href="https://www.linkedin.com/in/ricardo-daniel-mino-m%C3%A1rquez-385870223/">
-            <FontAwesomeIcon icon={faLinkedin} size="2x" />
+    <footer style={{
+      borderTop: '1px solid var(--border)',
+      padding: '1.5rem 1.5rem',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      gap: '1rem',
+    }}>
+      <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '0.85rem', color: 'var(--muted)', letterSpacing: '0.05em' }}>
+        © {new Date().getFullYear()} Ricardo Mino
+      </span>
+      <div style={{ display: 'flex', gap: '1.25rem' }}>
+        {[
+          { icon: faLinkedin, href: 'https://www.linkedin.com/in/ricardo-daniel-mino-m%C3%A1rquez-385870223/' },
+          { icon: faGithub, href: 'https://github.com/Ricardominom' },
+          { icon: faInstagram, href: 'https://www.instagram.com/ricardominom/?hl=es-es' },
+        ].map(({ icon, href }) => (
+          <a
+            key={href}
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: 'var(--muted)', transition: 'color 0.2s' }}
+            onMouseEnter={e => e.currentTarget.style.color = 'var(--gold)'}
+            onMouseLeave={e => e.currentTarget.style.color = 'var(--muted)'}
+          >
+            <FontAwesomeIcon icon={icon} />
           </a>
-          <a href="https://github.com/Ricardominom">
-            <FontAwesomeIcon icon={faGithub} size="2x" />
-          </a>
-          <a href="https://www.instagram.com/ricardominom/?hl=es-es">
-            <FontAwesomeIcon icon={faInstagram} size="2x" />
-          </a>
-        </div>
+        ))}
       </div>
+    </footer>
   )
 }

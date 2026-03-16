@@ -75,5 +75,29 @@ export const db = [
         image: 'FreelancerWeb',
         description: 'Freelancer Web is a personal portfolio webpage built with HTML and CSS. It showcases the services offered by a freelancer, featuring a clean and professional design that highlights skills, experience, and contact information in an easy-to-navigate layout.',
         url: 'https://primerproyectomino.netlify.app/'
+    },
+    {
+        id: 12,
+        projectName: 'Evolux Flooring Platform',
+        image: null,
+        tags: ['PHP', 'Laravel', 'MySQL'],
+        description: 'Designed and developed a complete end-to-end web platform for Esporadix, including a custom CMS-style administration panel for managing products and site content. Implemented full CRUD functionality, database migrations, and a structured MVC architecture, along with responsive public-facing views and an administrative dashboard focused on usability and maintainability.',
+        url: ''
+    },
+    {
+        id: 13,
+        projectName: 'Alpha Management',
+        image: null,
+        tags: ['React', 'Next.js', 'TypeScript', 'TailwindCSS', 'Cypress'],
+        description: 'Developed SaaS-style web platforms for political campaigns using Next.js, React, and TailwindCSS, featuring authentication, real-time dashboards, and reusable UI components. Implemented automated testing with Cypress and Jest, ensuring cross-browser compatibility and production-grade reliability.',
+        url: ''
+    },
+    {
+        id: 14,
+        projectName: 'Alethia Platform',
+        image: null,
+        tags: ['React', 'TypeScript', 'TailwindCSS', 'Axios', 'Cypress'],
+        description: 'Developed a scalable citizen engagement platform with reusable components, optimized performance, and modern UI/UX principles. Built with a SaaS-style architecture at Esporadix, focusing on accessibility, responsiveness, and maintainability.',
+        url: ''
     }
 ]

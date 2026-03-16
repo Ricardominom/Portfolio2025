@@ -1,3 +1,163 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ── Theme variables ─────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --surface2: #181818;
+  --border: #2a2a2a;
+  --text: #f5f0e8;
+  --muted: #888888;
+  --gold: #c9a84c;
+  --gold-light: #e8c86a;
+}
+
+[data-theme="light"] {
+  --bg: #faf8f4;
+  --surface: #f2ede6;
+  --surface2: #e8e3da;
+  --border: #d0c9be;
+  --text: #1c1a16;
+  --muted: #6b635a;
+  --gold: #8a6920;
+  --gold-light: #a67c2e;
+}
+
+/* ── Base ────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  cursor: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* { cursor: none !important; }
+
+h1, h2, h3, .serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* ── Scrollbar ───────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ── Nav links ───────────────────────────────────── */
+.nav-link {
+  position: relative;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+.nav-link:hover,
+.nav-link.active { color: var(--text); }
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+
+/* ── Gold line ───────────────────────────────────── */
+.gold-line {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ── Custom cursor ───────────────────────────────── */
+.cursor-dot {
+  position: fixed;
+  top: -3px; left: -3px;
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: -14px; left: -14px;
+  width: 28px; height: 28px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.5;
+  will-change: transform;
+  transition: width 0.25s ease, height 0.25s ease,
+              top 0.25s ease, left 0.25s ease,
+              opacity 0.25s ease, border-color 0.25s ease;
+}
+.cursor-ring.cursor-hover {
+  width: 48px; height: 48px;
+  top: -24px; left: -24px;
+  opacity: 0.9;
+  border-color: var(--gold-light);
+}
+
+/* ── Page transition ─────────────────────────────── */
+.page-transition {
+  animation: pageFadeIn 0.4s ease forwards;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* ── Scroll reveal ───────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+
+/* ── Intro animations ────────────────────────────── */
+@keyframes introEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes introBar {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+/* ── Home fade-up ────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards;
+}
+.fade-up-1 { animation-delay: 0.1s; }
+.fade-up-2 { animation-delay: 0.3s; }
+.fade-up-3 { animation-delay: 0.5s; }
+.fade-up-4 { animation-delay: 0.65s; }
+.fade-up-5 { animation-delay: 0.8s; }
+.fade-up-6 { animation-delay: 1s; }
